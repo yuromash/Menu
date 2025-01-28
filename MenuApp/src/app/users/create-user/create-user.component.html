@@ -1,0 +1,23 @@
+<form (ngSubmit)="createUser()" #userForm="ngForm">
+
+  <div>
+    <mat-form-field class="example-full-width">
+      <mat-label>Email</mat-label>
+      <input matInput name="email" [(ngModel)]="email" type="email" required />
+    </mat-form-field>
+  </div>
+
+  <div>
+    <mat-form-field>
+      <mat-label>Role</mat-label>
+      <mat-select [(value)]="role" id="role" name="role" required>
+        <mat-option value="Admin">Admin</mat-option>
+        <mat-option value="SuperAdmin">SuperAdmin</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <button mat-stroked-button type="submit" [disabled]="!userForm.valid">Create User</button>
+  <p *ngIf="message">{{ message }}</p>
+
+</form>

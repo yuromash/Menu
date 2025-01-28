@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
-import { UserService } from '../services/user.service';
+import {UserService} from "../services/user.service";
 
 @Component({
   selector: 'app-create-user',
   templateUrl: './create-user.component.html',
+  styleUrl: './create-user.component.scss'
 })
 export class CreateUserComponent {
   email = '';
@@ -14,8 +15,8 @@ export class CreateUserComponent {
 
   createUser() {
     this.userService.createUser(this.email, this.role).subscribe(
-      () => (this.message = 'User created successfully!'),
-      (err) => (this.message = 'Error: ' + err.message)
+      (data: any) => (this.message = 'User created successfully!'),
+      (err: any) => (this.message = 'Error: ' + err.message)
     );
   }
 }
